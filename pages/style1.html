@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../layout/menu.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>CSS Grid - Full-Height Page Layout</h1>
+      </header>
+      
+      <aside class="dashboard-sidebar">
+        <div class="logo">&#9812;</div>
+        <button type="button" id="resize">
+          &#9776;
+        </button>
+      </aside>
+      
+      <main class="dashboard-main">
+        Main
+      </main>
+      
+      <footer class="dashboard-footer">
+        Footer
+      </footer>
+
+</body>
+</html>
+
+<script>
+    const resizeBtn = document.getElementById("resize");
+resizeBtn.addEventListener("click", function (e) {
+e.preventDefault();
+document.body.classList.toggle("sb-expand");
+});
+</script>
