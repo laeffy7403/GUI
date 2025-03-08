@@ -61,13 +61,14 @@
       
         <div class="card card-7">
           <h2>Subscriptions - 7</h2>
-        </div>-->
+        </div> -->
       
         <div class="card card-8">
           <h2>Analytics - 8</h2>
+          <div class="scrollable-div" id="container"></div>
         </div>
       
-        <div class="card card-9">
+       <div class="card card-9">
           <h2>Inbox - 9</h2>
         </div>
       
@@ -103,3 +104,17 @@ e.preventDefault();
 document.body.classList.toggle("sb-expand");
 });
 </script>
+
+
+<script>
+  const container = document.getElementById("container");
+        const repeatTimes = 20; // You can change this number to make it flexible
+
+        for (let i = 0; i < repeatTimes; i++) {
+            const p = document.createElement("p");
+            p.textContent = "Hello World";
+            container.appendChild(p);
+        }
+</script>
+
+

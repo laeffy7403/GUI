@@ -37,7 +37,7 @@
     grid-template-areas:
       "sidebar header"
       "sidebar main"
-      "footer footer";
+      "sidebar footer";
   
     transition: grid-template-columns 0.3s ease;
   }
@@ -208,4 +208,13 @@ body.sb-expand .dashboard-nav {
       grid-column: auto;
     }
   }
+
+  .scrollable-div {
+    width: auto;
+    height: 400px;
+     /* border: 2px solid black;  */
+    overflow: auto; /* Enables scrolling */
+    padding: 12px;
+    margin: 5px;
+}
   
