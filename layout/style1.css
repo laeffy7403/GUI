@@ -83,6 +83,47 @@
     line-height: 1.3;
   }
 
+
+  /* sidebar-nav-styling */
+  .dashboard-nav {
+    padding: 1rem;
+}
+
+.dashboard-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-nav li {
+    margin-bottom: 1rem;
+}
+
+.dashboard-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-nav a:hover {
+    background-color: #333;
+}
+
+/* Disable pointer events and hide links when sidebar is collapsed */
+body:not(.sb-expand) .dashboard-nav {
+  pointer-events: none;
+  opacity: 0; /* Hide links */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+body.sb-expand .dashboard-nav {
+  pointer-events: auto;
+  opacity: 1; /* Show links */
+}
+
+
   
   /* dashboard-boxes-styling */
   .dashboard-main {
