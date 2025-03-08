@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">    
+    <head>
+        <link rel="stylesheet" href="../layout/header.css">
+    </head>
+    <header>
+    <nav>
+        <ul class="menu">
+            <li>
+               <b>Apple</b>
+            </li>
+            <li class="has-dropdown">
+                Phone
+                <ul class="dropdown">
+                    <li><a href="#">Phone 1</a></li>
+                    <li><a href="#">iPhone 15 Pro</a></li>
+                    <li><a href="#">iPhone SE</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                Tablet
+                <ul class="dropdown">
+                    <li><a href="#">Tab 15</a></li>
+                    <li><a href="#">Tab 15 Pro</a></li>
+                    <li><a href="#">Tab SE</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                Laptop
+                <ul class="dropdown">
+                    <li><a href="#">Laptop 15</a></li>
+                    <li><a href="#">Laptop 15 Pro</a></li>
+                    <li><a href="#">Laptop SE</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                Watch
+                <ul class="dropdown">
+                    <li><a href="#">Watch 15</a></li>
+                    <li><a href="#">Watch 15 Pro</a></li>
+                    <li><a href="#">Watch SE</a></li>
+                </ul>
+            </li>
+            <li >
+                About Us
+                
+            </li>
+            <li class="has-dropdown">
+                <img src="../img/magnifying-glass.svg" />
+                <ul class="dropdown">
+                    <li><a href="#">iPhone 15</a></li>
+                    <li><a href="#">iPhone 15 Pro</a></li>
+                    <li><a href="#">iPhone SE</a></li>
+                </ul>
+            </li>
+            <li>
+               <img src="../img/shopping-bag.svg" href="#"/>
+            </li>
+        </ul>
+    </nav>
+</header>
+<script>
+    document.querySelectorAll(".has-dropdown").forEach((menu) => {
+    menu.addEventListener("mouseenter", () => {
+        let dropdown = menu.querySelector(".dropdown");
+        dropdown.style.display = "block";
+        setTimeout(() => {
+            dropdown.style.opacity = "1";
+            dropdown.style.transform = "translateY(0)";
+        }, 10); // Slight delay to enable transition
+    });
+
+    menu.addEventListener("mouseleave", () => {
+        let dropdown = menu.querySelector(".dropdown");
+        dropdown.style.opacity = "0";
+        dropdown.style.transform = "translateY(-10px)";
+        setTimeout(() => {
+            dropdown.style.display = "none";
+        }, 300); // Matches CSS transition time
+    });
+});
+</script>
+</html>
