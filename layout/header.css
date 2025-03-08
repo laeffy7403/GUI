@@ -1,0 +1,78 @@
+body{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.menu {
+    
+    border:0px solid;
+    padding: 15px 20px;
+    width:auto;
+    display: flex;
+    justify-content: center; /* Centers the nav horizontally */
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li img {
+    width: 20px;  /* Adjust width to fit well with text */
+    height: 20px; 
+    vertical-align: middle; /* Helps align images inline with text */
+}
+
+.menu li {
+    position: relative;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 200px;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.dropdown li {
+    padding: 10px;
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 8px 15px;
+}
+
+/* Show Dropdown on Hover */
+.has-dropdown:hover .dropdown {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
