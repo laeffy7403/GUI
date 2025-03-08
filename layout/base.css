@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+  
+  h2 {
+    font-size: 0.875rem;
+  }
+  
+  p {
+    margin-block-end: 1.5rem;
+  }
+  
+  body {
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #161616;
+    background-color: #f3f3f3;
+  
+    min-block-size: 100vh;
+    min-block-size: 100dvh;
+    display: grid;
+    /* grid-template-columns: 100px 150px 200px 200px; */
+    /* grid-template-columns: 100px auto 10rem 200px; */
+    /* grid-template-columns: 100px auto repeat(2, 200px); */
+    /* grid-template-columns: repeat(2, 100px 200px); */
+    grid-template-columns: 5rem 1fr;
+  
+    /* grid-template-rows: 100px 200px 100px; */
+    grid-template-rows: auto 1fr auto;
+  
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+    grid-template-areas:
+      "sidebar header"
+      "sidebar main"
+      "footer footer";
+  
+    transition: grid-template-columns 0.3s ease;
+  }
