@@ -84,7 +84,7 @@
   }
 
 
-  /* sidebar-nav-styling */
+  /*------ sidebar-nav-styling ------*/
   .dashboard-nav {
     padding: 1rem;
 }
@@ -95,7 +95,7 @@
 }
 
 .dashboard-nav li {
-    margin-bottom: 1rem;
+    margin-bottom: 0.1rem;
 }
 
 .dashboard-nav a {
@@ -125,7 +125,7 @@ body.sb-expand .dashboard-nav {
 
 
   
-  /* dashboard-boxes-styling */
+  /*------ dashboard-boxes-styling ------*/
   .dashboard-main {
     grid-area: main;
     padding: 1.25rem;
