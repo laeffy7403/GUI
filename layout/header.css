@@ -42,11 +42,15 @@ nav ul li img {
     cursor: pointer;
 }
 
+.disable-blue{
+    color: black;
+}
+
 /* Dropdown Menu */
 .dropdown {
     position: absolute;
     top: 100%;
-    left: 0;
+    left:-70%;
     background: white;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -70,9 +74,68 @@ nav ul li img {
     padding: 8px 15px;
 }
 
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left:-70%;
+    transform: translateX(-50%);
+    
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px;
+    min-width: 250px;
+    display: none;
+}
+
+.search-dropdown li {
+    padding: 10px;
+}
+
+.search-dropdown li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 8px 15px;
+}
+
+.search-dropdown input {
+    width: 250px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    border-radius: 5px;
+   
+}
+
+.search-dropdown.active {
+    display: block;
+ 
+}
 /* Show Dropdown on Hover */
 .has-dropdown:hover .dropdown {
     display: block;
     opacity: 1;
     transform: translateY(0);
 }
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 40px; /* Start small */
+    
+    padding: 8px;
+    
+    border-radius: 18px;
+    outline: none;
+    font-size: 14px;
+    transition: width 0.4s ease-in-out, padding 0.4s ease-in-out;
+    background-color: #f5f5f7;
+}
+

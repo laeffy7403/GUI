@@ -10,7 +10,7 @@
                <b>Apple</b>
             </li>
             <li class="has-dropdown">
-                Phone
+                <a href="#" class="disable-blue">Phone</a>
                 <ul class="dropdown">
                     <li><a href="#">Phone 1</a></li>
                     <li><a href="#">iPhone 15 Pro</a></li>
@@ -18,7 +18,7 @@
                 </ul>
             </li>
             <li class="has-dropdown">
-                Tablet
+                <a href="#" class="disable-blue">Tablet</a>
                 <ul class="dropdown">
                     <li><a href="#">Tab 15</a></li>
                     <li><a href="#">Tab 15 Pro</a></li>
@@ -26,7 +26,7 @@
                 </ul>
             </li>
             <li class="has-dropdown">
-                Laptop
+                <a href="#" class="disable-blue">Laptop</a>
                 <ul class="dropdown">
                     <li><a href="#">Laptop 15</a></li>
                     <li><a href="#">Laptop 15 Pro</a></li>
@@ -34,7 +34,7 @@
                 </ul>
             </li>
             <li class="has-dropdown">
-                Watch
+                <a href="#" class="disable-blue">Watch</a>
                 <ul class="dropdown">
                     <li><a href="#">Watch 15</a></li>
                     <li><a href="#">Watch 15 Pro</a></li>
@@ -42,23 +42,30 @@
                 </ul>
             </li>
             <li >
-                About Us
-                
+                <a href="about-us.html" class="disable-blue">About Us</a>
             </li>
-            <li class="has-dropdown">
-                <img src="../img/magnifying-glass.svg" />
-                <ul class="dropdown">
-                    <li><a href="#">iPhone 15</a></li>
-                    <li><a href="#">iPhone 15 Pro</a></li>
-                    <li><a href="#">iPhone SE</a></li>
+            <li class="search-has-dropdown">
+                <img src="../img/magnifying-glass.svg" class="search-icon" title="Search Here"/>
+                <ul class="search-dropdown">
+                <li>
+                    <div class="search-container">
+                        
+                        <input type="text" class="search-input" placeholder="Search...">
+                        <img src="../img/magnifying-glass.svg" alt="Search Icon">
+                    </div>
+                </li>
                 </ul>
             </li>
             <li>
-               <img src="../img/shopping-bag.svg" href="#"/>
+               <img src="../img/shopping-bag.svg" href="#" title="Your Items"/>
+            </li>
+            <li >
+                <img src="../img/profile.svg" title="Profile" />
             </li>
         </ul>
     </nav>
 </header>
+
 <script>
     document.querySelectorAll(".has-dropdown").forEach((menu) => {
     menu.addEventListener("mouseenter", () => {
@@ -77,6 +84,29 @@
         setTimeout(() => {
             dropdown.style.display = "none";
         }, 300); // Matches CSS transition time
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchIcon = document.querySelector(".search-icon");
+    const searchDropdown = document.querySelector(".search-dropdown");
+    const searchInput = document.querySelector(".search-input");
+
+    if (!searchIcon || !searchDropdown || !searchInput) {
+        console.error("One or more elements not found!");
+        return;
+    }
+
+    searchIcon.addEventListener("click", function (e) {
+        e.stopPropagation();
+        searchDropdown.classList.toggle("active");
+        searchInput.focus();
+    });
+    
+    document.addEventListener("click", function (e) {
+        if (!searchDropdown.contains(e.target) && e.target !== searchIcon) {
+            searchDropdown.classList.remove("active");
+        }
     });
 });
 </script>
