@@ -12,6 +12,11 @@
   h2 {
     font-size: 0.875rem;
   }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
   
   p {
     margin-block-end: 1.5rem;
@@ -157,25 +162,15 @@ body.sb-expand .dashboard-nav {
     }
   
     .card-1 {
-      /* grid-row-start: 1; */
-      /* grid-row-end: 2; */
-      /* grid-row: 1 / 2; */
-  
-      /* grid-column-start: 1; */
-      /* grid-column-end: 5; */
-      /* grid-column: 1 / 5; */
-      /* grid-column: 1 / -1; */
-  
-      /*
-        grid-row-start / grid-column-start /
-        grid-row-end / grid-column-end
-      */
-      /* grid-area: 1 / 1 / 2 / -1; */
-  
-      /* grid-area: span 1 / span 4; */
+      grid-column: span 4;
+    }
+
+    .card-customer-orders {
       grid-column: span 4;
     }
   }
+
+
   
   @media (width >= 992px) {
     .card-2,
@@ -209,9 +204,10 @@ body.sb-expand .dashboard-nav {
     }
   }
 
+
   .scrollable-div {
     width: auto;
-    height: 400px;
+    height: auto;
      /* border: 2px solid black;  */
     overflow: auto; /* Enables scrolling */
     padding: 12px;
