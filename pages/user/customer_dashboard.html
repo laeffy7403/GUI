@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../layout/dashboard.css">
-    <link rel="stylesheet" href="../../layout/customer_order_table.css">
+    <link rel="stylesheet" href="../../layout/customer_dashboard_style.css">
     <link rel="stylesheet" href="../../layout/icon_n_search_bar.css">
     <title>customer dashboard</title>
 </head>
@@ -43,12 +43,41 @@
       
       
       <main class="dashboard-main">
-        <div class="card card-1">
-          <h2>Welcome back Customers Carti!</h2>
+        <!-- <div class="card card-1"> -->
+          <!-- <h2>Manage My Account</h2> -->
+        <!-- </div> -->
+
+        <div class="card card-9 customer-profile-card">
+          <h2>Manage My Account</h2>
         </div>
 
+
+
+        <!-- customer address info -->
+        <div class="card card-9">
+          <h2>Address Book <a href="#" class="edit-link">EDIT</a></h2>
+          <div class="address-container">
+            <div class="address-box">
+              <h3>DEFAULT SHIPPING ADDRESS</h3>
+              <p><b>negative one degree kevin</b></p>
+              <p>SENZ VILLES, LILITAN SUNGAI ARA, SUNGAI ARA, 11900 BAYAN LEPAS, PULAU PENANG 11-27-07</p>
+              <p>Penang - Bayan Lepas - 11900</p>
+              <p>(+60) 0143997403</p>
+            </div>
+            <div class="address-box">
+              <h3>DEFAULT BILLING ADDRESS</h3>
+              <p><b>negative one degree kevin</b></p>
+              <p>SENZ VILLES, LILITAN SUNGAI ARA, SUNGAI ARA, 11900 BAYAN LEPAS, PULAU PENANG 11-27-07</p>
+              <p>Penang - Bayan Lepas - 11900</p>
+              <p>(+60) 0143997403</p>
+            </div>
+          </div>
+        </div>
+        
+
+        <!-- customer recent Ordered -->
         <div class="card card-customer-orders">
-            <h2>Your first order!</h2>
+            <h2>Recent Order</h2>
             <table>
                 <thead>
                     <tr>
@@ -71,7 +100,7 @@
                         <td>Shipped</td>
                         <td>Credit Card</td>
                     </tr>
-                    <!-- Add more rows as needed -->
+                    <!-- Add more rows if needed -->
                      <!-- Sample Ordered table placed by cutomer -->
                 </tbody>
             </table>
@@ -87,8 +116,7 @@
         <div class="card card-customer-orders">
             <!-- <h2>Your first order!</h2> -->
         </div>
-        
-        
+             
         <!-- 
         <div class="card card-customer-orders">
             <h2>Your first order!</h2>
