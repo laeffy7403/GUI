@@ -23,7 +23,7 @@
   }
   
   body {
-    font-family: system-ui, sans-serif;
+    font-family: system-ui, sans-serif; 
     font-size: 1rem;
     line-height: 1.7;
     color: #161616;
@@ -67,7 +67,9 @@
     position: relative;
     grid-area: sidebar;
     color: #fff;
-    background-color: #1d1d29;
+    /* background-color: #1d1d29; */
+    /* background-color: #287094; */
+    background-color: lightslategray;
   }
   
   .dashboard-sidebar button {
@@ -113,7 +115,7 @@
 }
 
 .dashboard-nav a:hover {
-    background-color: #333;
+    /* background-color: #333; */
 }
 
 /* Disable pointer events and hide links when sidebar is collapsed */
