@@ -6,7 +6,7 @@
 
 body{
     font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: system-ui, sans-serif;
 }
 .menu {
     
@@ -44,7 +44,7 @@ nav ul li img {
 
 .menu li {
     position: relative;
-    padding: 10px 15px;
+    /* padding: 10px 15px; */
     cursor: pointer;
 }
 
@@ -70,7 +70,7 @@ nav ul li img {
 }
 
 .dropdown li {
-    padding: 10px;
+    /* padding: 10px; */    
 }
 
 .dropdown li a {

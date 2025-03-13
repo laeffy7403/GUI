@@ -11,14 +11,10 @@
 <body>
     <header class="dashboard-header">
         <h1>00Aplus - Dashboard</h1>
-        <a href="admin_dashboard.html">customer_dashboard</a>
-        <a href="staff_dashboard.html">customer_dashboard</a>
 
         <div class="header-right">
-        <!-- help change icon to nice looking icon -->
-          <div class="icon">&#128722;</div> <!-- Shopping cart icon -->
-          <div class="icon">&#128100;</div> <!-- User icon -->
-
+          <div><img class="icon" src="../../img/profile.svg"  title="Profile" /></div>
+          <div><img class="icon" src="../../img/shopping-bag.svg" title="Your Items"/></div>
       </div>
       </header>
       
@@ -35,6 +31,8 @@
             <li><a href="#">Orders</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Settings</a></li>
+            <li><a href="admin_dashboard.html">admin dash</a></li>
+            <li><a href="staff_dashboard.html">staff dash</a></li>
           </ul>
         </nav>
         </div>
@@ -175,7 +173,8 @@
       </main>
       
       <footer class="dashboard-footer">
-        Footer
+        <!-- Footer -->
+        <div id="footer-container"></div>
       </footer>
 
 </body>
@@ -192,14 +191,11 @@ document.body.classList.toggle("sb-expand");
 
 
 <script>
-  const container = document.getElementById("container");
-        const repeatTimes = 20; // You can change this number to make it flexible
-
-        for (let i = 0; i < repeatTimes; i++) {
-            const p = document.createElement("p");
-            p.textContent = "Hello World";
-            container.appendChild(p);
-        }
+  fetch("../footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
 </script>
 
 
