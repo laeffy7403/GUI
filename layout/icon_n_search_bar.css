@@ -25,6 +25,6 @@
 .icon  {
     width: 20px;  /* Adjust width to fit well with text */
     height: 20px; 
-    vertical-align: middle; /* Helps align images inline with text */
-    margin-left: 10px; /* add distance between two icon*/
+    vertical-align: middle; 
+    margin-left: 18px;
 }
