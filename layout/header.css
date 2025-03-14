@@ -23,7 +23,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 20px;
+    gap: 0px;
 }
 
 nav ul li {
@@ -83,16 +83,24 @@ nav ul li img {
 .search-dropdown {
     position: absolute;
     top: 100%;
-    left:-70%;
-    transform: translateX(-50%);
-    
+    left: -70%;
     background: white;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     list-style: none;
     padding: 10px;
     min-width: 250px;
-    display: none;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-10px); /* Slide up when hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    
+    z-index: 2; /* Ensure it appears above other elements */
+}
+
+.search-dropdown.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Slide down into place */
+   
 }
 
 .search-dropdown li {
@@ -113,20 +121,31 @@ nav ul li img {
     outline: none;
     font-size: 14px;
     border-radius: 5px;
-   
 }
 
-.search-dropdown.active {
-    display: block;
- 
-}
+
 /* Show Dropdown on Hover */
 .has-dropdown:hover .dropdown {
     display: block;
     opacity: 1;
     transform: translateY(0);
+    z-index: 1;
+  
+    
+}
+.dropdown {
+    display: block; /* Always keep it in the layout */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; /* Prevent interaction when invisible */
 }
 
+.dropdown.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Enable interaction when visible */
+}
 .search-container {
     position: relative;
     display: flex;
@@ -135,9 +154,7 @@ nav ul li img {
 
 .search-input {
     width: 40px; /* Start small */
-    
     padding: 8px;
-    
     border-radius: 18px;
     outline: none;
     font-size: 14px;

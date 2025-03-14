@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../layout/homepage.css">
+    <title>Homepage</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <!-- Banner Section -->
+    <div class="banner">
+        <div class="banner-content">
+            <h1>Welcome to ABC</h1>
+            <button class="shop-now-btn">Shop Now</button>
+        </div>
+    </div>
+
+    <!-- Promotion Products Section -->
+    <section class="promotion-products">
+        <h2>Promotion Products</h2>
+        <div class="product-grid">
+            <div class="product-card">Product 1</div>
+            <div class="product-card">Product 2</div>
+            <div class="product-card">Product 3</div>
+        </div>
+    </section>
+
+    <!-- Top Product Categories Section -->
+    <section class="top-categories">
+        <h2>Top Product Categories</h2>
+        <div class="product-grid">
+            <div class="product-card">Phone</div>
+            <div class="product-card">Tablet</div>
+            <div class="product-card">Others</div>
+        </div>
+    </section>
+    <div id="footer-placeholder"></div>
+</body>
+
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const headerPlaceholder = document.getElementById("header-placeholder");
+        const footerPlaceholder = document.getElementById("footer-placeholder");
+        // Fetch and include the header.html content
+        fetch("../pages/header.html")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to load header.html");
+                }
+                return response.text();
+            })
+            .then((data) => {
+                headerPlaceholder.innerHTML = data;
+
+                // Dynamically load the header.js script after the header is added
+                const script = document.createElement("script");
+                script.src = "../scripts/header.js";
+                document.body.appendChild(script);
+            })
+            .catch((error) => {
+                console.error("Error loading header:", error);
+            });
+
+            fetch("../pages/footer.html")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to load footer.html");
+                }
+                return response.text();
+            })
+            .then((data) => {
+                footerPlaceholder.innerHTML = data;
+
+                // Dynamically load the footer.js script if needed
+                const script = document.createElement("script");
+                script.src = "../scripts/footer.js";
+                script.onload = () => console.log("footer.js loaded successfully");
+                script.onerror = () => console.error("Failed to load footer.js");
+                document.body.appendChild(script);
+            })
+            .catch((error) => {
+                console.error("Error loading footer:", error);
+            });
+    
+    });
+</script>
