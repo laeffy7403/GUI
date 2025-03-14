@@ -22,8 +22,9 @@
     width: 300px; /* Adjust the width as needed */
 }
 
-.icon {
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-left: 1rem; /* Add margin to create distance between icons */
+.icon  {
+    width: 20px;  /* Adjust width to fit well with text */
+    height: 20px; 
+    vertical-align: middle; 
+    margin-left: 18px;
 }
