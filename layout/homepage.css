@@ -10,6 +10,10 @@ body {
     line-height: 1.6;
 }
 
+h3 {
+    text-align: center;
+}
+
 
 .banner {
     background: url('../img/pic2.jpg') ;
