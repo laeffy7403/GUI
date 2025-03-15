@@ -200,6 +200,7 @@ body.sb-expand .dashboard-nav {
     .card-8,
     .card-9 {
       /* min-block-size: 12rem; */
+      /* enable this to adjust the height of the box*/
     }
   
     .card-10,
