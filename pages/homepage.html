@@ -20,10 +20,10 @@
     <section class="promotion-products">
         <h2>Promotion Products</h2>
         <div class="product-grid">
-            <div class="product-card">Product 1</div>
-            <div class="product-card">Product 2</div>
-            <div class="product-card">Product 3</div>
-        </div>
+                <div class="product-card">Product 1</div>
+                <div class="product-card">Product 2</div>
+                <div class="product-card">Product 3</div>
+            </div>    
     </section>
 
     <!-- Top Product Categories Section -->
@@ -73,13 +73,6 @@
             })
             .then((data) => {
                 footerPlaceholder.innerHTML = data;
-
-                // Dynamically load the footer.js script if needed
-                const script = document.createElement("script");
-                script.src = "../scripts/footer.js";
-                script.onload = () => console.log("footer.js loaded successfully");
-                script.onerror = () => console.error("Failed to load footer.js");
-                document.body.appendChild(script);
             })
             .catch((error) => {
                 console.error("Error loading footer:", error);

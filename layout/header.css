@@ -8,6 +8,7 @@ body{
     font-size: 15px;
     font-family: system-ui, sans-serif;
 }
+
 .menu {
     
     border:0px solid;
@@ -142,13 +143,12 @@ nav ul li img {
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none; /* Prevent interaction when invisible */
 }
 
 .dropdown.visible {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto; /* Enable interaction when visible */
+    
 }
 .search-container {
     position: relative;
