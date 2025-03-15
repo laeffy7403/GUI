@@ -164,7 +164,7 @@ opacity: 1; /* Show links */
   }
 
   .card-1 {
-    grid-column: span 3;
+    grid-column: span 4;
   }
 
   .card-customer-orders {
@@ -192,19 +192,15 @@ opacity: 1; /* Show links */
     grid-area: 3 / 2 / 4 / 3;
   }
 
-  .card-6 {
-    grid-area: span 2 / auto;
-    /* ori grid-area: span 3 / auto; */
-    /* min-block-size: 12rem */
-  }
+  .card-6,
   .card-7 {
-    grid-area: span 3 / auto;
+    grid-area: span 2 / auto;
   }
 
   .card-8,
   .card-9 {
     /* min-block-size: 12rem; */
-    /* grid-row: 12; */
+    /* enable this to adjust the height of the box*/
   }
 
   .card-10,
@@ -212,8 +208,15 @@ opacity: 1; /* Show links */
   .card-12,
   .card-13 {
     grid-column: auto;
-    /* min-block-size: 2rem; */
   }
 }
 
 
+.scrollable-div {
+  width: auto;
+  height: auto;
+   /* border: 2px solid black;  */
+  overflow: auto; /* Enables scrolling */
+  padding: 12px;
+  margin: 5px;
+}
