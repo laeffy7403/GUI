@@ -20,7 +20,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
+    color: white;
     text-align: center;
     position: relative;
 }
@@ -74,7 +74,7 @@ section h2 {
     text-align: center;
     margin: 20px 0;
     font-size: 2rem;
-    color: #333;
+    color: black;
 }
 
 /* Product Grid */
@@ -99,4 +99,21 @@ section h2 {
 
 .product-card:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* the header is an external html file. 
+i gotta put some header css in homepage css file 
+so it only enable sticky header in the homepage */
+
+.sticky-menu {
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure it stays above other content */
+    background-color: rgba(255, 255, 255, 0.945);; /* Ensure the background is visible */
+    border: 0px solid;
+    padding: 15px 20px;
+    width: 100%; /* Ensure it takes the full width */
+    display: flex;
+    justify-content: center; /* Centers the nav horizontally */
+    align-items: center;
 }
