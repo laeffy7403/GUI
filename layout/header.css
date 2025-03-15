@@ -50,7 +50,8 @@ nav ul li img {
 }
 
 .disable-blue{
-    color: black;
+    color: black !important;
+    text-decoration:none !important;
 }
 
 
@@ -124,9 +125,9 @@ nav ul li img {
 }
 
 .search-icon{
-    border: none;
+    border: none !important;
     background-color: white;
-
+    outline: none !important;
 }
 
 
