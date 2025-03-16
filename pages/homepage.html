@@ -22,6 +22,8 @@
     <section class="promotion-products">
         <h2>Promotion Products</h2>
         <div id="carousel-container"></div>
+        <br><br>
+        <div id="product-grid-carousel"></div>
     </section>
 
     <br><br>
@@ -37,11 +39,7 @@
     <!-- Top Product Categories Section -->
     <section class="top-categories">
         <h3>Top Product Categories</h3>
-        <div class="product-grid">
-            <div class="product-card">Phone</div>
-            <div class="product-card">Tablet</div>
-            <div class="product-card">Others</div>
-        </div>
+        
     </section>
 
     <!-- space   -->
@@ -167,4 +165,75 @@ function initializeCarousel() {
 
         setInterval(nextSlide, 2000); // Change slide every 3 seconds
     }
+
+    fetch("product-grid-carousel.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("product-grid-carousel").innerHTML = data;
+        initializeProductGridCarousel();
+    });
+
+function initializeProductGridCarousel() {
+    const wrapper = document.querySelector(".product-grid-wrapper");
+    const slides = document.querySelectorAll(".product-grid");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+
+    let index = 1; // Start at 1 because of cloned slides
+    const totalSlides = slides.length;
+    
+    // Clone first and last slides
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[totalSlides - 1].cloneNode(true);
+
+    // Add clones to wrapper
+    wrapper.appendChild(firstClone); // Clone goes at end
+    wrapper.insertBefore(lastClone, slides[0]); // Clone goes at beginning
+
+    const newSlides = document.querySelectorAll(".product-grid"); // Recalculate slide count
+    const totalNewSlides = newSlides.length;
+
+    // Adjust wrapper position to start at first real slide
+    wrapper.style.transform = `translateX(${-index * 100}%)`;
+
+    function showSlide() {
+        wrapper.style.transition = "transform 0.5s ease-in-out";
+        wrapper.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    nextBtn.addEventListener("click", () => {
+        if (index >= totalSlides) {
+            index++;
+            showSlide();
+
+            // Wait for transition to finish, then reset to first real slide
+            setTimeout(() => {
+                wrapper.style.transition = "none";
+                index = 1;
+                wrapper.style.transform = `translateX(${-index * 100}%)`;
+            }, 500);
+        } else {
+            index++;
+            showSlide();
+        }
+    });
+
+    prevBtn.addEventListener("click", () => {
+        if (index <= 0) {
+            index--;
+            showSlide();
+
+            // Wait for transition to finish, then reset to last real slide
+            setTimeout(() => {
+                wrapper.style.transition = "none";
+                index = totalSlides - 1;
+                wrapper.style.transform = `translateX(${-index * 100}%)`;
+            }, 500);
+        } else {
+            index--;
+            showSlide();
+        }
+    });
+}
+
 </script>
