@@ -18,18 +18,23 @@
     <!-- external header section -->
     <div class="sticky-menu" id="header-placeholder"></div>
 
+    <br><br>
     <!-- Promotion Products Slide Section -->
     <section class="promotion-products">
-        <!-- <h2>Promotion Products</h2> -->
+        <h3>Exclusive event</h3>
+        <br>
         <div id="carousel-container"></div>
         <br><br>
+        <h3>New Product</h3>
+        <div id="product-grid-carousel"></div>
     </section>
 
     <br><br>
 
     <section class="top-categories">
         <h3>Top Product Categories</h3>
-            <div id="carousel-product"></div>
+        <div id="category-section"></div>
+            <!-- <div id="carousel-product"></div> -->
         </div>
     </section>
 
@@ -238,5 +243,13 @@ function initializeProductGridCarousel() {
         }
     });
 }
+
+fetch("grid_category.html")
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById("category-section").innerHTML = data;
+        ProductInitializeCarousel();
+    });
+
 
 </script>
