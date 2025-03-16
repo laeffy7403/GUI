@@ -28,14 +28,16 @@
 
     <section class="top-categories">
         <h3>Top Product Categories</h3>
-        <div class="product-grid">
-            <div class="product-card">Phone</div>
+        
+        <!-- <div class="product-grid"> -->
+            <div id="carousel-product"></div>
+            <!-- <div class="product-card">Phone</div>
             <div class="product-card">Tablet</div>
-            <div class="product-card">Others</div>
+            <div class="product-card">Others</div> -->
         </div>
     </section>
 
-    <br><br><br><br>
+    <br><br><br><br>    
 
     <!-- Top Product Categories Section -->
     <section class="top-categories">
@@ -94,20 +96,57 @@
         
 
         fetch("new_carousel.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("carousel-container").innerHTML = data;
-      initializeCarousel();
-    });
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById("carousel-container").innerHTML = data;
+            initializeCarousel();
+        });
 
     // this function make the carousel moving
+    // the class name in document.querySelector are actually an external file css style class
     function initializeCarousel() {
-            const slides = document.querySelector('.slides');
+            const promotionSlides = document.querySelector('.promotion-slides');
+            // const productSlides = document.querySelector('.product-slides');
             const indicators = document.querySelectorAll('.carousel-indicators button');
             let currentIndex = 0;
 
             function showSlide(index) {
-                slides.style.transform = `translateX(${-index * 100}%)`;
+                promotionSlides.style.transform = `translateX(${-index * 100}%)`;
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % indicators.length;
+                showSlide(currentIndex);
+            }
+
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    showSlide(currentIndex);
+                });
+            });
+
+            setInterval(nextSlide, 3000); // Change slide every 3 seconds
+        }
+
+
+        fetch("product_carousel.html")
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById("carousel-product").innerHTML = data;
+            initializeCarousel();
+        });
+
+        function initializeCarousel() {
+            const productSlides = document.querySelector('.product-slides');
+            const indicators = document.querySelectorAll('.carousel-indicators button');
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                productSlides.style.transform = `translateX(${-index * 100}%)`;
                 indicators.forEach((indicator, i) => {
                     indicator.classList.toggle('active', i === index);
                 });

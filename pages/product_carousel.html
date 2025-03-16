@@ -13,19 +13,19 @@
             margin: 0;
             padding: 0;
         }
-        .carousel {
+        .product-carousel {
             position: relative;
             max-width: 80%;
             margin: auto;
             overflow: hidden;
             height: 20rem; /* Adjust the height here */
         }
-        .slides {
+        .product-slides {
             display: flex;
             transition: transform 0.5s ease-in-out;
             height: 100%; /* Ensure slides take full height of carousel */
         }
-        .slide {
+        .product-slide {
             min-width: 100%;
             display: flex;
             /* justify-content: space-around; */
@@ -65,12 +65,13 @@
         .carousel-indicators button.active {
             background: #000;
         }
+        
     </style>
 </head>
 <body>
-    <div class="carousel">
-        <div class="slides">
-            <div class="slide">
+    <div class="product-carousel">
+        <div class="product-slides">
+            <div class="product-slide">
                 <div class="product-box">
                     <img src="../img/logo/logo1.png" alt="Category 1">
                     <h3>Category 1</h3>
@@ -92,7 +93,7 @@
                     <h3>Category 5</h3>
                 </div>
             </div>
-            <div class="slide">
+            <div class="product-slide">
                 <div class="product-box">
                     <img src="../img/logo/logo6.png" alt="Category 6">
                     <h3>Category 6</h3>
@@ -122,7 +123,7 @@
     </div>
 
     <script>
-        const slides = document.querySelector('.slides');
+        const slides = document.querySelector('.product-slides');
         const indicators = document.querySelectorAll('.carousel-indicators button');
         let currentIndex = 0;
 
