@@ -13,24 +13,24 @@
             margin: 0;
             padding: 0;
         }
-        .carousel {
+        .promotion-carousel {
             position: relative;
             max-width: 80%;
             margin: auto;
             overflow: hidden;
             height: 40rem; /* Adjust the height here */
         }
-        .slides {
+        .promotion-slides {
             display: flex;
             transition: transform 0.5s ease-in-out;
             height: auto; /* Ensure slides take full height of carousel */
         }
-        .slide {
+        .promotion-slide {
             min-width: 100%;
             transition: opacity 1s ease-in-out;
             height: auto; /* Ensure each slide takes full height of carousel */
         }
-        .slide img {
+        .promotion-slide img {
             width: 100%;
             height: auto; /* Ensure images take full height of slide */
             object-fit: cover; /* Maintain aspect ratio and cover the slide */
@@ -57,11 +57,12 @@
     </style>
 </head>
 <body>
-    <div class="carousel">
-        <div class="slides">
-            <div class="slide"><img src="../img/pic1.jpg" alt="Slide 1"></div>
-            <div class="slide"><img src="../img/pic2.jpg" alt="Slide 2"></div>
-            <div class="slide"><img src="../img/pic3.png" alt="Slide 3"></div>
+    <div class="promotion-carousel">
+        <div class="promotion-slides">
+            <div class="promotion-slide"><img src="../img/pic1.jpg" alt="Slide 1"></div>
+            <div class="promotion-slide"><img src="../img/pic2.jpg" alt="Slide 2"></div>
+            <div class="promotion-slide"><img src="../img/pic3.png" alt="Slide 3"></div>
+            <!-- <div class="slide"><img src="../img/pic3.png" alt="Slide 4"></div> -->
         </div>
         <div class="carousel-indicators">
             <button class="active"></button>
@@ -71,7 +72,7 @@
     </div>
 
     <script>
-        const slides = document.querySelector('.slides');
+        const slides = document.querySelector('.promotion-slides');
         const indicators = document.querySelectorAll('.carousel-indicators button');
         let currentIndex = 0;
 
