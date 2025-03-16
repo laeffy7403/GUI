@@ -125,11 +125,15 @@ nav ul li img {
 
 .search-icon{
     border: none !important;
-    background-color: white;
+    background-color: transparent;
     outline: none !important;
 }
 
-
+.profile-icon{
+    border: none !important;
+    background-color: transparent;
+    outline: none !important;
+}
 /* Show Dropdown on Hover */
 .has-dropdown:hover .dropdown {
     display: block;
