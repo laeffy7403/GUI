@@ -146,7 +146,7 @@
             let currentIndex = 0;
 
             function showSlide(index) {
-                productSlides.style.transform = `translateX(${-index * 100}%)`;
+                productSlides.style.transform = `translateX(${-index * 50}%)`;
                 indicators.forEach((indicator, i) => {
                     indicator.classList.toggle('active', i === index);
                 });
@@ -164,7 +164,7 @@
                 });
             });
 
-            setInterval(nextSlide, 3000); // Change slide every 3 seconds
+            setInterval(nextSlide, 1000); // Change slide every 3 seconds
         }
 
 
