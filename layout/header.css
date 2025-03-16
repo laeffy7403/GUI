@@ -8,8 +8,8 @@ body{
     font-size: 15px;
     font-family: system-ui, sans-serif;
 }
+
 .menu {
-    
     border:0px solid;
     padding: 15px 20px;
     width:auto;
@@ -49,8 +49,10 @@ nav ul li img {
 }
 
 .disable-blue{
-    color: black;
+    color: black !important;
+    text-decoration:none !important;
 }
+
 
 /* Dropdown Menu */
 .dropdown {
@@ -122,9 +124,9 @@ nav ul li img {
 }
 
 .search-icon{
-    border: none;
+    border: none !important;
     background-color: white;
-
+    outline: none !important;
 }
 
 
@@ -142,13 +144,12 @@ nav ul li img {
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none; /* Prevent interaction when invisible */
 }
 
 .dropdown.visible {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto; /* Enable interaction when visible */
+    
 }
 .search-container {
     position: relative;

@@ -7,43 +7,56 @@
     <title>Homepage</title>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    
     <!-- Banner Section -->
     <div class="banner">
         <div class="banner-content">
-            <h1>Welcome to ABC</h1>
-            <button class="shop-now-btn">Shop Now</button>
+            <h2>Welcome to ABC</h2>
         </div>
     </div>
 
-    <!-- Promotion Products Section -->
+    <!-- external header section -->
+    <div class="sticky-menu" id="header-placeholder"></div>
+
+    <!-- Promotion Products Slide Section -->
     <section class="promotion-products">
         <h2>Promotion Products</h2>
-        <div class="product-grid">
-            <div class="product-card">Product 1</div>
-            <div class="product-card">Product 2</div>
-            <div class="product-card">Product 3</div>
+        <div id="carousel-container"></div>
+    </section>
+
+    <br><br>
+
+    <section class="top-categories">
+        <h3>Top Product Categories</h3>
+            <div id="carousel-product"></div>
         </div>
     </section>
 
+    <br><br><br><br>    
+
     <!-- Top Product Categories Section -->
     <section class="top-categories">
-        <h2>Top Product Categories</h2>
+        <h3>Top Product Categories</h3>
         <div class="product-grid">
             <div class="product-card">Phone</div>
             <div class="product-card">Tablet</div>
             <div class="product-card">Others</div>
         </div>
     </section>
-    <div id="footer-placeholder"></div>
-</body>
 
+    <!-- space   -->
+    <br><br><br><br><br><br>
+
+    <div id="footer-placeholder"></div>
+
+</body>
 </html>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const headerPlaceholder = document.getElementById("header-placeholder");
         const footerPlaceholder = document.getElementById("footer-placeholder");
+
         // Fetch and include the header.html content
         fetch("../pages/header.html")
             .then((response) => {
@@ -64,7 +77,7 @@
                 console.error("Error loading header:", error);
             });
 
-            fetch("../pages/footer.html")
+        fetch("../pages/footer.html")
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to load footer.html");
@@ -73,17 +86,85 @@
             })
             .then((data) => {
                 footerPlaceholder.innerHTML = data;
-
-                // Dynamically load the footer.js script if needed
-                const script = document.createElement("script");
-                script.src = "../scripts/footer.js";
-                script.onload = () => console.log("footer.js loaded successfully");
-                script.onerror = () => console.error("Failed to load footer.js");
-                document.body.appendChild(script);
             })
             .catch((error) => {
                 console.error("Error loading footer:", error);
             });
-    
     });
+    
+
+    fetch("promotion_carousel.html")
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById("carousel-container").innerHTML = data;
+        initializeCarousel();
+    });
+
+// this function make the carousel moving
+// the class name in document.querySelector are actually an external file css style class
+function initializeCarousel() {
+        const promotionSlides = document.querySelector('.promotion-slides');
+        // const productSlides = document.querySelector('.product-slides');
+        const indicators = document.querySelectorAll('.carousel-indicators button');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            promotionSlides.style.transform = `translateX(${-index * 100}%)`;
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % indicators.length;
+            showSlide(currentIndex);
+        }
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                showSlide(currentIndex);
+            });
+        });
+
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    }
+
+
+    fetch("product_carousel.html")
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById("carousel-product").innerHTML = data;
+        ProductInitializeCarousel();
+    });
+
+    
+
+
+    function ProductInitializeCarousel() {
+        const productSlides = document.querySelector('.product-slides');
+        const indicators = document.querySelectorAll('.carousel-indicators button');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            productSlides.style.transform = `translateX(${-index * 50}%)`;
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % indicators.length;
+            showSlide(currentIndex);
+        }
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                showSlide(currentIndex);
+            });
+        });
+
+        setInterval(nextSlide, 2000); // Change slide every 3 seconds
+    }
 </script>
