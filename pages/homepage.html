@@ -137,10 +137,13 @@
             .then(response => response.text())
             .then(data => {
             document.getElementById("carousel-product").innerHTML = data;
-            initializeCarousel();
+            ProductInitializeCarousel();
         });
 
-        function initializeCarousel() {
+        
+
+
+        function ProductInitializeCarousel() {
             const productSlides = document.querySelector('.product-slides');
             const indicators = document.querySelectorAll('.carousel-indicators button');
             let currentIndex = 0;
@@ -164,7 +167,7 @@
                 });
             });
 
-            setInterval(nextSlide, 1000); // Change slide every 3 seconds
+            setInterval(nextSlide, 2000); // Change slide every 3 seconds
         }
 
 
