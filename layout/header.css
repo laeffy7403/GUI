@@ -8,8 +8,8 @@ body{
     font-size: 15px;
     font-family: system-ui, sans-serif;
 }
+
 .menu {
-    
     border:0px solid;
     padding: 15px 20px;
     width:auto;
@@ -49,8 +49,10 @@ nav ul li img {
 }
 
 .disable-blue{
-    color: black;
+    color: black !important;
+    text-decoration:none !important;
 }
+
 
 /* Dropdown Menu */
 .dropdown {
@@ -65,8 +67,8 @@ nav ul li img {
     min-width: 200px;
     display: none;
     opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    /* transform: translateY(-10px); */
+    /* transition: opacity 0.4s ease, transform 0.4s ease; */
 }
 
 
@@ -122,12 +124,16 @@ nav ul li img {
 }
 
 .search-icon{
-    border: none;
-    background-color: white;
-
+    border: none !important;
+    background-color: transparent;
+    outline: none !important;
 }
 
-
+.profile-icon{
+    border: none !important;
+    background-color: transparent;
+    outline: none !important;
+}
 /* Show Dropdown on Hover */
 .has-dropdown:hover .dropdown {
     display: block;
@@ -140,15 +146,14 @@ nav ul li img {
 .dropdown {
     display: block; /* Always keep it in the layout */
     opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none; /* Prevent interaction when invisible */
+    /* transform: translateY(-10px); */
+    /* transition: opacity 0.3s ease, transform 0.3s ease; */
 }
 
 .dropdown.visible {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto; /* Enable interaction when visible */
+    
 }
 .search-container {
     position: relative;

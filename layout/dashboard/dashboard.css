@@ -44,7 +44,7 @@
       "sidebar main"
       "sidebar footer";
   
-    transition: grid-template-columns 0.3s ease;
+    /* transition: grid-template-columns 0.3s ease; */
   }
   
   body.sb-expand {
@@ -111,7 +111,7 @@
     font-size: 1rem;
     display: block;
     padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
+    /* transition: background-color 0.3s ease; */
 }
 
 .dashboard-nav a:hover {
@@ -122,7 +122,8 @@
 body:not(.sb-expand) .dashboard-nav {
   pointer-events: none;
   opacity: 0; /* Hide links */
-  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+  /* transition: opacity 0.3s ease;  */
+  /* Smooth transition for opacity */
 }
 
 body.sb-expand .dashboard-nav {
@@ -151,7 +152,7 @@ body.sb-expand .dashboard-nav {
     padding: 1rem;
     min-block-size: 7rem;
     background-color: #fff;
-    border-radius: 0.5rem;
+    border-radius: 1.5rem;
   }
   
   .card-1 {
@@ -200,6 +201,7 @@ body.sb-expand .dashboard-nav {
     .card-8,
     .card-9 {
       /* min-block-size: 12rem; */
+      /* enable this to adjust the height of the box*/
     }
   
     .card-10,
