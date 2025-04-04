@@ -171,3 +171,17 @@ nav ul li img {
     background-color: #f5f5f7;
 }
 
+.cart-page {
+    position: relative; /* Ensure it has a position context */
+    z-index: 10; /* Set a high z-index to bring it to the front */
+}
+
+.profile-icon{
+    position: relative; /* Ensure it has a position context */
+    z-index: 10; /* Set a high z-index to bring it to the front */
+}
+
+.search-icon{
+    position: relative; /* Ensure it has a position context */
+    z-index: 10; /* Set a high z-index to bring it to the front */
+}
