@@ -75,7 +75,7 @@ td {
     height: 150px;
 }
 
-h3 {
+h3.prodname {
     font-size: 1.17em;
     font-weight: bold;
     height: 5em;
