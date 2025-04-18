@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,75 +8,80 @@
     <link rel="stylesheet" href="../layout/style.css">
     <link rel="stylesheet" href="header.css">
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
     <!-- Payment Form -->
-<div class="main-container">
-    <div class="motivation">
-        <div class="text-container">
-            <span class="text1">Payment</span>
-            <span class="text2">Almost There!</span>
-            <span class="text3">Just One Step Left</span>
-        </div>
-        
-    </div>
-    <div class="container">
-        <form id="paymentForm">
-            <div class="form-section">
-                <h4>Billing Address</h4>
-                <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input type="text" id="fullName" name="fullName" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
-                </div>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" name="address" placeholder="Enter street address" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="address2" name="address2" placeholder="Enter street address line 2">
-                </div>
+    <div class="main-container">
+        <div class="motivation">
+            <div class="text-container">
+                <span class="text1">Payment</span>
+                <span class="text2">Almost There!</span>
+                <span class="text3">Just One Step Left</span>
             </div>
-            <div class="form-section">
-                <h4>Payment Details</h4>
-                <div class="form-group">
-                    <label for="cardNumber">Card Number</label>
-                    <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter Your Card Number" required>
-                </div>
-                <div class="form-group">
-                    <label for="expMonth">Exp Month</label>
-                    <input type="text" id="expMonth" name="expMonth" placeholder="dd/mm/yyyy" required>
-                </div>
-                <div class="row-container">
-                    <div class="form-group">
-                        <label for="expYear">Exp Year</label>
-                        <select id="expYear" name="expYear" required>
-                            <option value="">Choose Year</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="2026">2026</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" required>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <button type="submit">Submit Payment</button>
-            </div>
-        </form>
-    </div>
-</div>
 
-<div id="footer-placeholder"></div>
+        </div>
+        <div class="container">
+            <form id="paymentForm">
+                <div class="form-section">
+                    <h4>Billing Address</h4>
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" placeholder="Enter street address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="address2" name="address2" placeholder="Enter street address line 2">
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h4>Payment Details</h4>
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter Your Card Number"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expMonth">Exp Month</label>
+                        <input type="text" id="expMonth" name="expMonth" placeholder="mm/yyyy" required>
+                    </div>
+                    <div class="row-container">
+                        <div class="form-group">
+                            <label for="expYear">Exp Year</label>
+                            <select id="expYear" name="expYear" required>
+                                <option value="">Choose Year</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button id="tng-mock-button" class="tng-button">
+                        <img src="tng-logo.png" alt="TNG eWallet" width="120">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
 </body>
+
 </html>
 
 <script>
@@ -102,7 +108,7 @@
                 console.error("Error loading header:", error);
             });
 
-            fetch("../pages/footer.html")
+        fetch("../pages/footer.html")
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to load footer.html");
@@ -122,241 +128,256 @@
             .catch((error) => {
                 console.error("Error loading footer:", error);
             });
-    
 
-     // Form Validation
-     const paymentForm = document.getElementById('paymentForm');
-            
-            // Create error message elements
-            const createErrorElement = (parent) => {
-                const errorElement = document.createElement('div');
-                errorElement.className = 'error-message';
-                parent.appendChild(errorElement);
-                return errorElement;
-            };
-            
-            // Validation functions
-            const validateFullName = () => {
-                const fullName = document.getElementById('fullName');
-                const errorElement = fullName.parentElement.querySelector('.error-message') || 
-                                    createErrorElement(fullName.parentElement);
-                
-                if (fullName.value.trim() === '') {
-                    errorElement.textContent = 'Full name is required';
-                    errorElement.style.display = 'block';
-                    fullName.parentElement.classList.add('error');
-                    return false;
-                } else if (!/^[a-zA-Z ]{2,30}$/.test(fullName.value.trim())) {
-                    errorElement.textContent = 'Name should only contain letters (2-30 characters)';
-                    errorElement.style.display = 'block';
-                    fullName.parentElement.classList.add('error');
-                    return false;
-                } else {
-                    errorElement.style.display = 'none';
-                    fullName.parentElement.classList.remove('error');
-                    fullName.parentElement.classList.add('success');
-                    return true;
-                }
-            };
-            
-            const validateEmail = () => {
-                const email = document.getElementById('email');
-                const errorElement = email.parentElement.querySelector('.error-message') || 
-                                    createErrorElement(email.parentElement);
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                
-                if (email.value.trim() === '') {
-                    errorElement.textContent = 'Email is required';
-                    errorElement.style.display = 'block';
-                    email.parentElement.classList.add('error');
-                    return false;
-                } else if (!emailRegex.test(email.value)) {
-                    errorElement.textContent = 'Please enter a valid email address';
-                    errorElement.style.display = 'block';
-                    email.parentElement.classList.add('error');
-                    return false;
-                } else {
-                    errorElement.style.display = 'none';
-                    email.parentElement.classList.remove('error');
-                    email.parentElement.classList.add('success');
-                    return true;
-                }
-            };
-            
-            const validateAddress = () => {
-                const address = document.getElementById('address');
-                const errorElement = address.parentElement.querySelector('.error-message') || 
-                                    createErrorElement(address.parentElement);
-                
-                if (address.value.trim() === '') {
-                    errorElement.textContent = 'Address is required';
-                    errorElement.style.display = 'block';
-                    address.parentElement.classList.add('error');
-                    return false;
-                } else if (address.value.trim().length < 5) {
-                    errorElement.textContent = 'Address should be at least 5 characters';
-                    errorElement.style.display = 'block';
-                    address.parentElement.classList.add('error');
-                    return false;
-                } else {
-                    errorElement.style.display = 'none';
-                    address.parentElement.classList.remove('error');
-                    address.parentElement.classList.add('success');
-                    return true;
-                }
-            };
-            
-            const validateCardNumber = () => {
-                const cardNumber = document.getElementById('cardNumber');
-                const errorElement = cardNumber.parentElement.querySelector('.error-message') || 
-                                    createErrorElement(cardNumber.parentElement);
-                const cardRegex = /^[0-9]{13,19}$/;
-                
-                if (cardNumber.value.trim() === '') {
-                    errorElement.textContent = 'Card number is required';
-                    errorElement.style.display = 'block';
-                    cardNumber.parentElement.classList.add('error');
-                    return false;
-                } else if (!cardRegex.test(cardNumber.value.replace(/\s/g, ''))) {
-                    errorElement.textContent = 'Please enter a valid card number (13-19 digits)';
-                    errorElement.style.display = 'block';
-                    cardNumber.parentElement.classList.add('error');
-                    return false;
-                } else {
-                    errorElement.style.display = 'none';
-                    cardNumber.parentElement.classList.remove('error');
-                    cardNumber.parentElement.classList.add('success');
-                    return true;
-                }
-            };
-            
-            const validateExpMonth = () => {
-                const expMonth = document.getElementById('expMonth');
-                const errorElement = expMonth.parentElement.querySelector('.error-message') || 
-                                    createErrorElement(expMonth.parentElement);
-                const monthRegex = /^(0[1-9]|1[0-2])\/\d{4}$/;
-                
-                if (expMonth.value.trim() === '') {
-                    errorElement.textContent = 'Expiration date is required';
+
+        // Form Validation
+        const paymentForm = document.getElementById('paymentForm');
+
+        // Create error message elements
+        const createErrorElement = (parent) => {
+            const errorElement = document.createElement('div');
+            errorElement.className = 'error-message';
+            parent.appendChild(errorElement);
+            return errorElement;
+        };
+
+        // Validation functions
+        const validateFullName = () => {
+            const fullName = document.getElementById('fullName');
+            const errorElement = fullName.parentElement.querySelector('.error-message') ||
+                createErrorElement(fullName.parentElement);
+
+            if (fullName.value.trim() === '') {
+                errorElement.textContent = 'Full name is required';
+                errorElement.style.display = 'block';
+                fullName.parentElement.classList.add('error');
+                return false;
+            } else if (!/^[a-zA-Z ]{2,30}$/.test(fullName.value.trim())) {
+                errorElement.textContent = 'Name should only contain letters (2-30 characters)';
+                errorElement.style.display = 'block';
+                fullName.parentElement.classList.add('error');
+                return false;
+            } else {
+                errorElement.style.display = 'none';
+                fullName.parentElement.classList.remove('error');
+                fullName.parentElement.classList.add('success');
+                return true;
+            }
+        };
+
+        const validateEmail = () => {
+            const email = document.getElementById('email');
+            const errorElement = email.parentElement.querySelector('.error-message') ||
+                createErrorElement(email.parentElement);
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email.value.trim() === '') {
+                errorElement.textContent = 'Email is required';
+                errorElement.style.display = 'block';
+                email.parentElement.classList.add('error');
+                return false;
+            } else if (!emailRegex.test(email.value)) {
+                errorElement.textContent = 'Please enter a valid email address';
+                errorElement.style.display = 'block';
+                email.parentElement.classList.add('error');
+                return false;
+            } else {
+                errorElement.style.display = 'none';
+                email.parentElement.classList.remove('error');
+                email.parentElement.classList.add('success');
+                return true;
+            }
+        };
+
+        const validateAddress = () => {
+            const address = document.getElementById('address');
+            const errorElement = address.parentElement.querySelector('.error-message') ||
+                createErrorElement(address.parentElement);
+
+            if (address.value.trim() === '') {
+                errorElement.textContent = 'Address is required';
+                errorElement.style.display = 'block';
+                address.parentElement.classList.add('error');
+                return false;
+            } else if (address.value.trim().length < 5) {
+                errorElement.textContent = 'Address should be at least 5 characters';
+                errorElement.style.display = 'block';
+                address.parentElement.classList.add('error');
+                return false;
+            } else {
+                errorElement.style.display = 'none';
+                address.parentElement.classList.remove('error');
+                address.parentElement.classList.add('success');
+                return true;
+            }
+        };
+
+        const validateCardNumber = () => {
+            const cardNumber = document.getElementById('cardNumber');
+            const errorElement = cardNumber.parentElement.querySelector('.error-message') ||
+                createErrorElement(cardNumber.parentElement);
+            const cardRegex = /^[0-9]{13,19}$/;
+
+            if (cardNumber.value.trim() === '') {
+                errorElement.textContent = 'Card number is required';
+                errorElement.style.display = 'block';
+                cardNumber.parentElement.classList.add('error');
+                return false;
+            } else if (!cardRegex.test(cardNumber.value.replace(/\s/g, ''))) {
+                errorElement.textContent = 'Please enter a valid card number (13-19 digits)';
+                errorElement.style.display = 'block';
+                cardNumber.parentElement.classList.add('error');
+                return false;
+            } else {
+                errorElement.style.display = 'none';
+                cardNumber.parentElement.classList.remove('error');
+                cardNumber.parentElement.classList.add('success');
+                return true;
+            }
+        };
+
+        const validateExpMonth = () => {
+            const expMonth = document.getElementById('expMonth');
+            const errorElement = expMonth.parentElement.querySelector('.error-message') ||
+                createErrorElement(expMonth.parentElement);
+            const monthRegex = /^(0[1-9]|1[0-2])\/\d{4}$/;
+
+            if (expMonth.value.trim() === '') {
+                errorElement.textContent = 'Expiration date is required';
+                errorElement.style.display = 'block';
+                expMonth.parentElement.classList.add('error');
+                return false;
+            } else if (!monthRegex.test(expMonth.value)) {
+                errorElement.textContent = 'Please use MM/YYYY format';
+                errorElement.style.display = 'block';
+                expMonth.parentElement.classList.add('error');
+                return false;
+            } else {
+                // Check if card is expired
+                const [month, year] = expMonth.value.split('/');
+                const currentDate = new Date();
+                const currentYear = currentDate.getFullYear();
+                const currentMonth = currentDate.getMonth() + 1;
+
+                if (year < currentYear || (year == currentYear && month < currentMonth)) {
+                    errorElement.textContent = 'Card has expired';
                     errorElement.style.display = 'block';
                     expMonth.parentElement.classList.add('error');
                     return false;
-                } else if (!monthRegex.test(expMonth.value)) {
-                    errorElement.textContent = 'Please use MM/YYYY format';
-                    errorElement.style.display = 'block';
-                    expMonth.parentElement.classList.add('error');
-                    return false;
-                } else {
-                    // Check if card is expired
-                    const [month, year] = expMonth.value.split('/');
-                    const currentDate = new Date();
-                    const currentYear = currentDate.getFullYear();
-                    const currentMonth = currentDate.getMonth() + 1;
-                    
-                    if (year < currentYear || (year == currentYear && month < currentMonth)) {
-                        errorElement.textContent = 'Card has expired';
-                        errorElement.style.display = 'block';
-                        expMonth.parentElement.classList.add('error');
-                        return false;
-                    }
-                    
-                    errorElement.style.display = 'none';
-                    expMonth.parentElement.classList.remove('error');
-                    expMonth.parentElement.classList.add('success');
-                    return true;
                 }
-            };
-            
-            const validateExpYear = () => {
-                const expYear = document.getElementById('expYear');
-                const errorElement = expYear.parentElement.querySelector('.error-message') || 
-                                    createErrorElement(expYear.parentElement);
-                
-                if (expYear.value === '') {
-                    errorElement.textContent = 'Expiration year is required';
-                    errorElement.style.display = 'block';
-                    expYear.parentElement.classList.add('error');
-                    return false;
-                } else {
-                    errorElement.style.display = 'none';
-                    expYear.parentElement.classList.remove('error');
-                    expYear.parentElement.classList.add('success');
-                    return true;
-                }
-            };
-            
-            const validateCVV = () => {
-                const cvv = document.getElementById('cvv');
-                const errorElement = cvv.parentElement.querySelector('.error-message') || 
-                                    createErrorElement(cvv.parentElement);
-                const cvvRegex = /^[0-9]{3,4}$/;
-                
-                if (cvv.value.trim() === '') {
-                    errorElement.textContent = 'CVV is required';
-                    errorElement.style.display = 'block';
-                    cvv.parentElement.classList.add('error');
-                    return false;
-                } else if (!cvvRegex.test(cvv.value)) {
-                    errorElement.textContent = 'CVV should be 3 or 4 digits';
-                    errorElement.style.display = 'block';
-                    cvv.parentElement.classList.add('error');
-                    return false;
-                } else {
-                    errorElement.style.display = 'none';
-                    cvv.parentElement.classList.remove('error');
-                    cvv.parentElement.classList.add('success');
-                    return true;
-                }
-            };
-            
-            // Real-time validation
-            document.getElementById('fullName').addEventListener('blur', validateFullName);
-            document.getElementById('email').addEventListener('blur', validateEmail);
-            document.getElementById('address').addEventListener('blur', validateAddress);
-            document.getElementById('cardNumber').addEventListener('blur', validateCardNumber);
-            document.getElementById('expMonth').addEventListener('blur', validateExpMonth);
-            document.getElementById('expYear').addEventListener('blur', validateExpYear);
-            document.getElementById('cvv').addEventListener('blur', validateCVV);
-            
-            // Format card number as user types
-            document.getElementById('cardNumber').addEventListener('input', function(e) {
-                this.value = this.value.replace(/\D/g, '')
-                    .replace(/(\d{4})/g, '$1 ')
-                    .trim();
-            });
-            
-            // Format expiration date as user types
-            document.getElementById('expMonth').addEventListener('input', function(e) {
-                this.value = this.value.replace(/^(\d\d)(\d)$/g, '$1/$2')
-                    .replace(/^(\d{2}\/\d{2})(\d+)$/g, '$1/$2')
-                    .replace(/[^\d\/]/g, '');
-            });
-            
-            // Form submission
-            paymentForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Validate all fields
-                const isFullNameValid = validateFullName();
-                const isEmailValid = validateEmail();
-                const isAddressValid = validateAddress();
-                const isCardNumberValid = validateCardNumber();
-                const isExpMonthValid = validateExpMonth();
-                const isExpYearValid = validateExpYear();
-                const isCVVValid = validateCVV();
-                
-                if (isFullNameValid && isEmailValid && isAddressValid && 
-                    isCardNumberValid && isExpMonthValid && isExpYearValid && isCVVValid) {
-                    // Form is valid - proceed with submission
-                    alert('Payment submitted successfully!');
-                    // paymentForm.submit(); // Uncomment to actually submit the form
-                } else {
-                    // Scroll to the first error
-                    const firstError = document.querySelector('.error');
-                    if (firstError) {
-                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                }
-            });
+
+                errorElement.style.display = 'none';
+                expMonth.parentElement.classList.remove('error');
+                expMonth.parentElement.classList.add('success');
+                return true;
+            }
+        };
+
+        const validateExpYear = () => {
+            const expYear = document.getElementById('expYear');
+            const errorElement = expYear.parentElement.querySelector('.error-message') ||
+                createErrorElement(expYear.parentElement);
+
+            if (expYear.value === '') {
+                errorElement.textContent = 'Expiration year is required';
+                errorElement.style.display = 'block';
+                expYear.parentElement.classList.add('error');
+                return false;
+            } else {
+                errorElement.style.display = 'none';
+                expYear.parentElement.classList.remove('error');
+                expYear.parentElement.classList.add('success');
+                return true;
+            }
+        };
+
+        const validateCVV = () => {
+            const cvv = document.getElementById('cvv');
+            const errorElement = cvv.parentElement.querySelector('.error-message') ||
+                createErrorElement(cvv.parentElement);
+            const cvvRegex = /^[0-9]{3,4}$/;
+
+            if (cvv.value.trim() === '') {
+                errorElement.textContent = 'CVV is required';
+                errorElement.style.display = 'block';
+                cvv.parentElement.classList.add('error');
+                return false;
+            } else if (!cvvRegex.test(cvv.value)) {
+                errorElement.textContent = 'CVV should be 3 or 4 digits';
+                errorElement.style.display = 'block';
+                cvv.parentElement.classList.add('error');
+                return false;
+            } else {
+                errorElement.style.display = 'none';
+                cvv.parentElement.classList.remove('error');
+                cvv.parentElement.classList.add('success');
+                return true;
+            }
+        };
+
+        // Real-time validation
+        document.getElementById('fullName').addEventListener('blur', validateFullName);
+        document.getElementById('email').addEventListener('blur', validateEmail);
+        document.getElementById('address').addEventListener('blur', validateAddress);
+        document.getElementById('cardNumber').addEventListener('blur', validateCardNumber);
+        document.getElementById('expMonth').addEventListener('blur', validateExpMonth);
+        document.getElementById('expYear').addEventListener('blur', validateExpYear);
+        document.getElementById('cvv').addEventListener('blur', validateCVV);
+
+        // Format card number as user types
+        document.getElementById('cardNumber').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, '')
+                .replace(/(\d{4})/g, '$1 ')
+                .trim();
         });
+
+        document.getElementById('expMonth').addEventListener('input', function (e) {
+            this.value = this.value
+                .replace(/\D/g, '') // Remove non-digits
+                .replace(/^(\d{2})/, '$1/') // Add slash after MM
+                .substring(0, 7); // Limit to MM/YYYY
+        });
+
+        // Form submission
+        paymentForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Validate all fields
+            const isFullNameValid = validateFullName();
+            const isEmailValid = validateEmail();
+            const isAddressValid = validateAddress();
+            const isCardNumberValid = validateCardNumber();
+            const isExpMonthValid = validateExpMonth();
+            const isExpYearValid = validateExpYear();
+            const isCVVValid = validateCVV();
+
+            if (isFullNameValid && isEmailValid && isAddressValid &&
+                isCardNumberValid && isExpMonthValid && isExpYearValid && isCVVValid) {
+                // Form is valid - proceed with submission
+                alert('Payment submitted successfully!');
+                // paymentForm.submit(); // Uncomment to actually submit the form
+            } else {
+                // Scroll to the first error
+                const firstError = document.querySelector('.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+    });
+
+
+    document.getElementById('tng-mock-button').addEventListener('click', function () {
+        if (!validateForm()) return; // Your existing validation
+
+        // Show mock TNG popup
+        const phone = prompt("Simulate TNG Payment\nEnter phone number (e.g., 0123456789):");
+        if (phone) {
+            setTimeout(() => {
+                alert("Payment Successful!\nSimulated RM10 received");
+                // Redirect or show success UI
+            }, 1500);
+        }
+    });
+
 </script>
