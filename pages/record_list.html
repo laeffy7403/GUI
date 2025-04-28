@@ -211,3 +211,106 @@
     </div>
 </body>
 </html>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+    const createButton = document.querySelector('.btn-create');
+    const refreshButton = document.querySelector('.btn-refresh');
+    const viewButtons = document.querySelectorAll('.btn-view');
+    const updateButtons = document.querySelectorAll('.btn-update');
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+
+    // Create functionality
+    createButton.addEventListener('click', function () {
+        const newRecord = {
+            id: Date.now(), // Example ID
+            name: prompt('Enter name:'),
+            email: prompt('Enter email:'),
+            phone: prompt('Enter phone:')
+        };
+
+        if (newRecord.name && newRecord.email && newRecord.phone) {
+            console.log('Creating record:', newRecord);
+            alert('Record created successfully!');
+        } else {
+            alert('All fields are required!');
+        }
+    });
+
+    // Refresh functionality
+    refreshButton.addEventListener('click', function () {
+        console.log('Refreshing data...');
+        alert('Data refreshed!');
+    });
+
+    // View functionality
+    viewButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const row = this.closest('tr');
+            const id = row.querySelector('td:nth-child(2)').textContent;
+            console.log(`Viewing record with ID: ${id}`);
+            alert(`Viewing record with ID: ${id}`);
+        });
+    });
+
+    // Update functionality with inline editing
+    updateButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const row = this.closest('tr');
+            const cells = row.querySelectorAll('td:nth-child(n+3):nth-child(-n+5)'); // Select Name, Email, and Phone cells
+
+            // Make cells editable
+            cells.forEach(cell => {
+                cell.contentEditable = true;
+                cell.style.border = '1px solid #007BFF'; // Highlight editable cells
+            });
+
+            // Change button text to "Save"
+            button.textContent = 'Save';
+            button.classList.remove('btn-update');
+            button.classList.add('btn-save');
+
+            // Add save functionality
+            button.addEventListener('click', function saveChanges() {
+                // Disable editing
+                cells.forEach(cell => {
+                    cell.contentEditable = false;
+                    cell.style.border = ''; // Remove highlight
+                });
+
+                // Log updated data
+                const updatedData = {
+                    id: row.querySelector('td:nth-child(2)').textContent,
+                    name: row.querySelector('td:nth-child(3)').textContent,
+                    email: row.querySelector('td:nth-child(4)').textContent,
+                    phone: row.querySelector('td:nth-child(5)').textContent
+                };
+                console.log('Updated record:', updatedData);
+                alert(`Record with ID ${updatedData.id} updated successfully!`);
+
+                // Revert button text to "Update"
+                button.textContent = 'Update';
+                button.classList.remove('btn-save');
+                button.classList.add('btn-update');
+
+                // Remove save functionality to prevent duplicate event listeners
+                button.removeEventListener('click', saveChanges);
+            });
+        });
+    });
+
+    // Delete functionality
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const row = this.closest('tr');
+            const id = row.querySelector('td:nth-child(2)').textContent;
+            if (confirm(`Are you sure you want to delete record with ID ${id}?`)) {
+                console.log(`Deleting record with ID: ${id}`);
+                row.remove();
+                alert(`Record with ID ${id} deleted successfully!`);
+            }
+        });
+    });
+});
+</script>
